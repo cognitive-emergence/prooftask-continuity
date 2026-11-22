@@ -1,0 +1,1 @@
+{"schema":"https://humanjudgment.org/ns/conformity-issuer/1.0","issuer":"https://prooftask.com","id":"did:web:prooftask.com","keys":[{"id":"did:web:prooftask.com#prooftask-ed25519-e069634faea0967c","type":"Multikey","controller":"did:web:prooftask.com","publicKeyMultibase":"z6MkvEaJmvdt4LJooUCiBjLYGCif3fGJ6cXFA91xKD8XHznL","status":"ACTIVE"}]}

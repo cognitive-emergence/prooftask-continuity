@@ -1,0 +1,27 @@
+{
+ "keys": [
+  {
+   "keyId": "prooftask-ed25519-e069634faea0967c",
+   "algorithm": "Ed25519",
+   "fingerprintSha256": "e069634faea0967cf3ec8395ac8c06863296ed2ed2d316c52d802bb861b95ca3",
+   "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA6nsWx3sUdhtLCSWa+DctuxonCqzkX1DFBRQEiulPIAk=\n-----END PUBLIC KEY-----\n",
+   "firstSeen": "2026-11-22T06:57:20.750Z",
+   "lastSeen": "2026-11-22T06:57:20.750Z",
+   "statuses": [
+    {
+     "seen": "2026-11-22T06:57:20.750Z",
+     "status": "ACTIVE",
+     "trustBundle": "9d77f16d5f3e5f02688cb207f77dc5baf6b4d4894cef2b29150c34c0072c1413"
+    }
+   ],
+   "trustBundles": [
+    "history/trust-bundles/9d77f16d5f3e5f02688cb207f77dc5baf6b4d4894cef2b29150c34c0072c1413.json"
+   ],
+   "current": {
+    "seen": "2026-11-22T06:57:20.750Z",
+    "status": "ACTIVE",
+    "trustBundle": "9d77f16d5f3e5f02688cb207f77dc5baf6b4d4894cef2b29150c34c0072c1413"
+   }
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Espejo de continuidad de ProofTask</title>
+<style>
+:root{color-scheme:light dark;--fg:#1b1f24;--bg:#fff;--muted:#59636e;--line:#d0d7de;--code:#f6f8fa}
+@media (prefers-color-scheme:dark){:root{--fg:#e6edf3;--bg:#0d1117;--muted:#9198a1;--line:#30363d;--code:#161b22}}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:860px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:1.6rem;margin:0 0 .5rem}h2{font-size:1.15rem;margin-top:2rem}
+p,li{max-width:72ch}.muted{color:var(--muted)}nav{margin-bottom:1rem;font-size:14px}
+pre,code{font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--code)}
+pre{padding:12px;border:1px solid var(--line);border-radius:6px;overflow-x:auto;white-space:pre;direction:ltr;text-align:left}
+code{padding:1px 4px;border-radius:4px}
+.table{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:start;vertical-align:top}
+.hash{font-family:ui-monospace,Menlo,monospace;font-size:12px;overflow-wrap:anywhere;direction:ltr;unicode-bidi:isolate}
+</style>
+</head>
+<body>
+<main>
+<nav aria-label="Idioma"><a href="index.html" lang="en" hreflang="en">English</a> · <a href="index.zh-CN.html" lang="zh-CN" hreflang="zh-CN">简体中文</a> · <a href="index.ja.html" lang="ja" hreflang="ja">日本語</a> · <a href="index.ko.html" lang="ko" hreflang="ko">한국어</a> · <a href="index.ar.html" lang="ar" hreflang="ar">العربية</a> · <span aria-current="page" lang="es">Español</span> · <a href="index.pt-BR.html" lang="pt-BR" hreflang="pt-BR">Português (Brasil)</a></nav>
+<h1>Espejo de continuidad de ProofTask</h1>
+<p>Este directorio permite a cualquier persona verificar un registro de resultado de ProofTask guardado sin contactar con ProofTask. Contiene el verificador sin conexión, las claves públicas del emisor (actuales e históricas) y el historial de claves. Nada de lo que hay aquí necesita conexión a la red.</p>
+<p class="muted">Generado el <span dir="ltr">2026-11-22T06:57:20.750Z</span> desde <span dir="ltr">https://prooftask.com</span>. Versión publicada <code dir="ltr">2657b060f3886a442e64f9252d0e572c54f2664b</code>. SHA-256 del verificador: <span class="hash">a1377c6e62b2d1755a344a1c3314c6f4630847b0e0910fa79fde6eeaa1747a6d</span></p>
+
+<h2>1. Compruebe este espejo</h2>
+<p>Cada archivo figura con su SHA-256 en <a href="manifest.json" dir="ltr">manifest.json</a> y <a href="SHA256SUMS" dir="ltr">SHA256SUMS</a>. En este directorio, ejecute:</p>
+<pre>shasum -a 256 -c SHA256SUMS</pre>
+<p>Después, compare las huellas digitales de las claves del emisor que aparecen abajo con una fuente en la que confíe con independencia de este espejo: la huella digital que muestra un registro que recibió, las claves fijadas en el repositorio de código fuente de ProofTask (<code dir="ltr">keys/operator-issuers.json</code> es una copia) u otro espejo. Un espejo solo es tan fiable como esa comparación.</p>
+
+<h2>2. Verifique un registro guardado</h2>
+<p>Necesita Node.js 22 o posterior y el archivo de registro que guardó (por ejemplo, <code dir="ltr">prooftask-result-record-&lt;id&gt;.json</code> o un Conformity Package). Desde este directorio, ejecute:</p>
+<pre>node verifier/verify-conformity.mjs /path/to/prooftask-result-record-ID.json keys/prooftask-trust-bundle.json --text</pre>
+<ul>
+<li>El veredicto es uno de <code dir="ltr">VERIFIED_WITH_LIMITATIONS</code>, <code dir="ltr">PARTIAL_DISCLOSURE</code>, <code dir="ltr">INDETERMINATE</code>, <code dir="ltr">INVALID</code>. El código de salida 0 significa verificado (lea los límites indicados), 1 significa no válido y 3 significa que no se puede determinar.</li>
+<li>Para comprobarlo en un momento pasado, añada <code dir="ltr">--at=2026-11-21T00:00:00.000Z</code>.</li>
+<li>Si la clave que firmó su registro ya no está en el paquete de confianza actual, busque su ID de clave en <a href="keys/key-history.json" dir="ltr">keys/key-history.json</a> e indique el paquete de confianza histórico que allí se menciona (en <code dir="ltr">history/trust-bundles/</code>) en lugar de <code dir="ltr">keys/prooftask-trust-bundle.json</code>.</li>
+<li>Un registro firmado con una clave de producción de ProofTask fijada en el verificador también se verifica sin el segundo argumento: <code dir="ltr">node verifier/verify-conformity.mjs RECORD --text</code></li>
+<li>Sin terminal, abra <a href="verifier/prooftask-buyer-record-checker.html" dir="ltr">verifier/prooftask-buyer-record-checker.html</a> (si está disponible) en un navegador y seleccione el registro y el paquete de confianza.</li>
+</ul>
+<p>Lo que esto no puede indicarle: el estado actual de un resultado (una declaración de estado firmada procede del servicio en funcionamiento; sin ella, el estado actual figura como desconocido), si coinciden los archivos originales que usted no aporte, ni la autoridad de una empresa más allá de lo que usted mismo apruebe. El historial firmado y las firmas se comprueban por completo.</p>
+<p>Los archivos del verificador en <code dir="ltr">verifier/</code> se distribuyen bajo la Apache License, Version 2.0; el texto completo está en <a href="LICENSE" dir="ltr">LICENSE</a>.</p>
+
+<h2>3. Claves del emisor</h2>
+<div class="table"><table><thead><tr><th>ID de clave</th><th>Estado</th><th>Válido desde</th><th>Válido hasta</th><th>Huella digital SHA-256 (SPKI)</th><th>Visto en este espejo</th></tr></thead><tbody><tr><td>prooftask-ed25519-e069634faea0967c</td><td>ACTIVE</td><td></td><td></td><td class="hash">e069634faea0967cf3ec8395ac8c06863296ed2ed2d316c52d802bb861b95ca3</td><td dir="ltr">2026-11-22T06:57:20.750Z – 2026-11-22T06:57:20.750Z</td></tr></tbody></table></div>
+<p>Versiones del paquete de confianza que ha contenido este espejo: 1. Figuran en <a href="history/index.json" dir="ltr">history/index.json</a>.</p>
+
+<h2>4. Registro de transparencia</h2>
+<p>Este espejo no contiene cabeceras de árbol del registro de transparencia.</p>
+
+<h2>5. Archivos</h2>
+<div class="table"><table><thead><tr><th>Ruta</th><th>Bytes</th><th>SHA-256</th></tr></thead><tbody><tr><td><a href="LICENSE">LICENSE</a></td><td>11358</td><td class="hash">c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c</td></tr><tr><td><a href="history/index.json">history/index.json</a></td><td>365</td><td class="hash">12f2a17ea77eef6ec83b0d5d582893f70099fcf67f25dac920c64072b705c454</td></tr><tr><td><a href="history/trust-bundles/9d77f16d5f3e5f02688cb207f77dc5baf6b4d4894cef2b29150c34c0072c1413.json">history/trust-bundles/9d77f16d5f3e5f02688cb207f77dc5baf6b4d4894cef2b29150c34c0072c1413.json</a></td><td>44105</td><td class="hash">9d77f16d5f3e5f02688cb207f77dc5baf6b4d4894cef2b29150c34c0072c1413</td></tr><tr><td><a href="keys/conformity-issuer.json">keys/conformity-issuer.json</a></td><td>345</td><td class="hash">120b09cdf34d38f0c599e46ea450f75f434117bb650957203999c94451161d9a</td></tr><tr><td><a href="keys/did.json">keys/did.json</a></td><td>427</td><td class="hash">186b057c9795e86e3336c62bcc6cf38c0838df1d8188294fcd342f9b71ffa018</td></tr><tr><td><a href="keys/key-history.json">keys/key-history.json</a></td><td>905</td><td class="hash">a064c72a3e775623487959ef6c065ceabd0030499c28110909f7af96ad4ad7ba</td></tr><tr><td><a href="keys/operator-issuers.json">keys/operator-issuers.json</a></td><td>506</td><td class="hash">896b8c7d8b8771cb12a8b972f5767b12a100ea40f6b8f3a50180ca819a26c396</td></tr><tr><td><a href="keys/prooftask-issuer.json">keys/prooftask-issuer.json</a></td><td>320</td><td class="hash">31621267e84663d2039019448e79691c2e1a917ab38f222d2a9a744e048b8851</td></tr><tr><td><a href="keys/prooftask-trust-bundle.json">keys/prooftask-trust-bundle.json</a></td><td>44105</td><td class="hash">9d77f16d5f3e5f02688cb207f77dc5baf6b4d4894cef2b29150c34c0072c1413</td></tr><tr><td><a href="verifier/prooftask-buyer-record-checker.html">verifier/prooftask-buyer-record-checker.html</a></td><td>5718443</td><td class="hash">e6c6b51c3542de946c5c8fa1959a521e70e0654d029a66d61a0c4f9b35ea96e0</td></tr><tr><td><a href="verifier/verify-conformity.mjs">verifier/verify-conformity.mjs</a></td><td>425729</td><td class="hash">a1377c6e62b2d1755a344a1c3314c6f4630847b0e0910fa79fde6eeaa1747a6d</td></tr></tbody></table></div>
+</main>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+ "trustBundles": [
+  {
+   "sha256": "9d77f16d5f3e5f02688cb207f77dc5baf6b4d4894cef2b29150c34c0072c1413",
+   "path": "history/trust-bundles/9d77f16d5f3e5f02688cb207f77dc5baf6b4d4894cef2b29150c34c0072c1413.json",
+   "firstSeen": "2026-11-22T06:57:20.750Z",
+   "lastSeen": "2026-11-22T06:57:20.750Z",
+   "release": "2657b060f3886a442e64f9252d0e572c54f2664b"
+  }
+ ]
+}

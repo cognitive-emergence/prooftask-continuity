@@ -1,0 +1,1 @@
+{"schema":"prooftask.issuer/v1","keyId":"prooftask-ed25519-e069634faea0967c","algorithm":"Ed25519","fingerprintSha256":"e069634faea0967cf3ec8395ac8c06863296ed2ed2d316c52d802bb861b95ca3","publicKeyPem":"-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA6nsWx3sUdhtLCSWa+DctuxonCqzkX1DFBRQEiulPIAk=\n-----END PUBLIC KEY-----\n"}

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ProofTask 연속성 미러</title>
+<style>
+:root{color-scheme:light dark;--fg:#1b1f24;--bg:#fff;--muted:#59636e;--line:#d0d7de;--code:#f6f8fa}
+@media (prefers-color-scheme:dark){:root{--fg:#e6edf3;--bg:#0d1117;--muted:#9198a1;--line:#30363d;--code:#161b22}}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:860px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:1.6rem;margin:0 0 .5rem}h2{font-size:1.15rem;margin-top:2rem}
+p,li{max-width:72ch}.muted{color:var(--muted)}nav{margin-bottom:1rem;font-size:14px}
+pre,code{font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--code)}
+pre{padding:12px;border:1px solid var(--line);border-radius:6px;overflow-x:auto;white-space:pre;direction:ltr;text-align:left}
+code{padding:1px 4px;border-radius:4px}
+.table{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:start;vertical-align:top}
+.hash{font-family:ui-monospace,Menlo,monospace;font-size:12px;overflow-wrap:anywhere;direction:ltr;unicode-bidi:isolate}
+</style>
+</head>
+<body>
+<main>
+<nav aria-label="언어"><a href="index.html" lang="en" hreflang="en">English</a> · <a href="index.zh-CN.html" lang="zh-CN" hreflang="zh-CN">简体中文</a> · <a href="index.ja.html" lang="ja" hreflang="ja">日本語</a> · <span aria-current="page" lang="ko">한국어</span> · <a href="index.ar.html" lang="ar" hreflang="ar">العربية</a> · <a href="index.es.html" lang="es" hreflang="es">Español</a> · <a href="index.pt-BR.html" lang="pt-BR" hreflang="pt-BR">Português (Brasil)</a></nav>
+<h1>ProofTask 연속성 미러</h1>
+<p>이 디렉터리를 사용하면 누구나 ProofTask에 연락하지 않고도 저장된 ProofTask 결과 기록을 검증할 수 있습니다. 오프라인 검증기, 발급자 공개 키(현재 및 과거), 키 이력이 들어 있습니다. 여기 있는 어떤 것도 네트워크 연결이 필요하지 않습니다.</p>
+<p class="muted"><span dir="ltr">2026-11-22T06:57:20.750Z</span>에 <span dir="ltr">https://prooftask.com</span>에서 생성했습니다. 릴리스 <code dir="ltr">2657b060f3886a442e64f9252d0e572c54f2664b</code>. 검증기 SHA-256: <span class="hash">a1377c6e62b2d1755a344a1c3314c6f4630847b0e0910fa79fde6eeaa1747a6d</span></p>
+
+<h2>1. 이 미러 확인</h2>
+<p>모든 파일과 SHA-256이 <a href="manifest.json" dir="ltr">manifest.json</a>와 <a href="SHA256SUMS" dir="ltr">SHA256SUMS</a>에 나와 있습니다. 이 디렉터리에서 다음을 실행하세요.</p>
+<pre>shasum -a 256 -c SHA256SUMS</pre>
+<p>그런 다음 아래 발급자 키 지문을 이 미러와 독립적으로 신뢰하는 출처와 비교하세요. 받은 결과 기록에 표시된 지문, ProofTask 소스 저장소에 커밋된 고정 키(<code dir="ltr">keys/operator-issuers.json</code>는 그 사본), 또는 다른 미러가 그런 출처입니다. 미러의 신뢰도는 이 비교의 신뢰도를 넘지 않습니다.</p>
+
+<h2>2. 저장된 결과 기록 검증</h2>
+<p>Node.js 22 이상과 저장한 결과 기록 파일(예: <code dir="ltr">prooftask-result-record-&lt;id&gt;.json</code> 또는 Conformity Package)이 필요합니다. 이 디렉터리에서 다음을 실행하세요.</p>
+<pre>node verifier/verify-conformity.mjs /path/to/prooftask-result-record-ID.json keys/prooftask-trust-bundle.json --text</pre>
+<ul>
+<li>판정은 <code dir="ltr">VERIFIED_WITH_LIMITATIONS</code>, <code dir="ltr">PARTIAL_DISCLOSURE</code>, <code dir="ltr">INDETERMINATE</code>, <code dir="ltr">INVALID</code> 중 하나입니다. 종료 상태 0은 검증됨(나열된 한계를 읽으세요), 1은 유효하지 않음, 3은 판단할 수 없음을 뜻합니다.</li>
+<li>과거 시점 기준으로 확인하려면 <code dir="ltr">--at=2026-11-21T00:00:00.000Z</code>을 추가하세요.</li>
+<li>결과 기록에 서명한 키가 현재 신뢰 번들에 더 이상 없으면 <a href="keys/key-history.json" dir="ltr">keys/key-history.json</a>에서 해당 키 ID를 찾아 <code dir="ltr">keys/prooftask-trust-bundle.json</code> 대신 거기에 명시된 과거 신뢰 번들(<code dir="ltr">history/trust-bundles/</code> 안)을 지정하세요.</li>
+<li>검증기에 고정된 ProofTask 운영 키로 서명된 결과 기록은 두 번째 인수 없이도 검증됩니다: <code dir="ltr">node verifier/verify-conformity.mjs RECORD --text</code></li>
+<li>터미널이 없으면 브라우저에서 <a href="verifier/prooftask-buyer-record-checker.html" dir="ltr">verifier/prooftask-buyer-record-checker.html</a>(있는 경우)를 열고 결과 기록과 신뢰 번들을 선택하세요.</li>
+</ul>
+<p>이것으로 알 수 없는 것: 결과의 현재 상태(서명된 상태 확인서는 운영 중인 서비스에서 제공되며, 없으면 현재 상태는 알 수 없음으로 표시됩니다), 제공하지 않은 원본 파일의 일치 여부, 직접 승인한 범위를 넘는 회사 권한. 서명된 이력과 서명은 모두 확인됩니다.</p>
+<p><code dir="ltr">verifier/</code>의 검증기 파일은 Apache License 2.0에 따라 라이선스가 부여됩니다. 전문은 <a href="LICENSE" dir="ltr">LICENSE</a>에 있습니다.</p>
+
+<h2>3. 발급자 키</h2>
+<div class="table"><table><thead><tr><th>키 ID</th><th>상태</th><th>유효 시작</th><th>유효 기한</th><th>SHA-256 지문(SPKI)</th><th>이 미러에서 확인된 기간</th></tr></thead><tbody><tr><td>prooftask-ed25519-e069634faea0967c</td><td>ACTIVE</td><td></td><td></td><td class="hash">e069634faea0967cf3ec8395ac8c06863296ed2ed2d316c52d802bb861b95ca3</td><td dir="ltr">2026-11-22T06:57:20.750Z – 2026-11-22T06:57:20.750Z</td></tr></tbody></table></div>
+<p>이 미러가 보관해 온 신뢰 번들 버전 수: 1. 목록은 <a href="history/index.json" dir="ltr">history/index.json</a>에 있습니다.</p>
+
+<h2>4. 투명성 로그</h2>
+<p>이 미러에는 투명성 로그 트리 헤드가 없습니다.</p>
+
+<h2>5. 파일</h2>
+<div class="table"><table><thead><tr><th>경로</th><th>바이트 수</th><th>SHA-256</th></tr></thead><tbody><tr><td><a href="LICENSE">LICENSE</a></td><td>11358</td><td class="hash">c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c</td></tr><tr><td><a href="history/index.json">history/index.json</a></td><td>365</td><td class="hash">12f2a17ea77eef6ec83b0d5d582893f70099fcf67f25dac920c64072b705c454</td></tr><tr><td><a href="history/trust-bundles/9d77f16d5f3e5f02688cb207f77dc5baf6b4d4894cef2b29150c34c0072c1413.json">history/trust-bundles/9d77f16d5f3e5f02688cb207f77dc5baf6b4d4894cef2b29150c34c0072c1413.json</a></td><td>44105</td><td class="hash">9d77f16d5f3e5f02688cb207f77dc5baf6b4d4894cef2b29150c34c0072c1413</td></tr><tr><td><a href="keys/conformity-issuer.json">keys/conformity-issuer.json</a></td><td>345</td><td class="hash">120b09cdf34d38f0c599e46ea450f75f434117bb650957203999c94451161d9a</td></tr><tr><td><a href="keys/did.json">keys/did.json</a></td><td>427</td><td class="hash">186b057c9795e86e3336c62bcc6cf38c0838df1d8188294fcd342f9b71ffa018</td></tr><tr><td><a href="keys/key-history.json">keys/key-history.json</a></td><td>905</td><td class="hash">a064c72a3e775623487959ef6c065ceabd0030499c28110909f7af96ad4ad7ba</td></tr><tr><td><a href="keys/operator-issuers.json">keys/operator-issuers.json</a></td><td>506</td><td class="hash">896b8c7d8b8771cb12a8b972f5767b12a100ea40f6b8f3a50180ca819a26c396</td></tr><tr><td><a href="keys/prooftask-issuer.json">keys/prooftask-issuer.json</a></td><td>320</td><td class="hash">31621267e84663d2039019448e79691c2e1a917ab38f222d2a9a744e048b8851</td></tr><tr><td><a href="keys/prooftask-trust-bundle.json">keys/prooftask-trust-bundle.json</a></td><td>44105</td><td class="hash">9d77f16d5f3e5f02688cb207f77dc5baf6b4d4894cef2b29150c34c0072c1413</td></tr><tr><td><a href="verifier/prooftask-buyer-record-checker.html">verifier/prooftask-buyer-record-checker.html</a></td><td>5718443</td><td class="hash">e6c6b51c3542de946c5c8fa1959a521e70e0654d029a66d61a0c4f9b35ea96e0</td></tr><tr><td><a href="verifier/verify-conformity.mjs">verifier/verify-conformity.mjs</a></td><td>425729</td><td class="hash">a1377c6e62b2d1755a344a1c3314c6f4630847b0e0910fa79fde6eeaa1747a6d</td></tr></tbody></table></div>
+</main>
+</body>
+</html>
