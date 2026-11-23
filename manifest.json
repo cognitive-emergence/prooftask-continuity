@@ -1,10 +1,10 @@
 {
  "schema": "prooftask.continuity-mirror/v1",
- "builtAt": "2026-11-23T10:40:29.636Z",
+ "builtAt": "2026-11-23T16:12:52.333Z",
  "origin": "https://prooftask.com",
  "release": {
-  "commitSha": "e28af411c7682903e3749463bf3af8e643274c57",
-  "deploymentId": "0a3d00d8-ff0d-4165-8c38-cf7f3543baea",
+  "commitSha": "77169f4284820ba684e1a0592039f898cb015927",
+  "deploymentId": "b08ea2ca-dffc-4c01-8002-1c58b3820987",
   "environment": "production"
  },
  "verifier": {
@@ -14,7 +14,7 @@
  },
  "trustBundle": {
   "path": "keys/prooftask-trust-bundle.json",
-  "sha256": "f8af56d987f323f22b7dec6f4e3691085520bf0f596bab19b86e6d0c8a41a715"
+  "sha256": "05236f225f2538b369c2555b35a658c8b1063096018063b24785bb2eebedec4e"
  },
  "transparencyLog": {
   "status": "NOT_AVAILABLE"
@@ -22,8 +22,13 @@
  "files": [
   {
    "path": "history/index.json",
-   "bytes": 2745,
-   "sha256": "8d1497c618b98df8d4dbf4d2d7f285fc6bb0d279ad2d6db50a495ba3bad06b35"
+   "bytes": 3085,
+   "sha256": "3c3a0af960e77da22f401a5bee68419689c8e255354abbf0f12cab45af7a0854"
+  },
+  {
+   "path": "history/trust-bundles/05236f225f2538b369c2555b35a658c8b1063096018063b24785bb2eebedec4e.json",
+   "bytes": 49461,
+   "sha256": "05236f225f2538b369c2555b35a658c8b1063096018063b24785bb2eebedec4e"
   },
   {
    "path": "history/trust-bundles/0d4166e0fba25c4e2837eaf230acaed0902d26a17bf69e6dd6fc6823c4d04957.json",
@@ -67,38 +72,38 @@
   },
   {
    "path": "index.ar.html",
-   "bytes": 11392,
-   "sha256": "c16e32ba88314d14f0f67380033cb0d67ed75d7536a414bfe59f42052c0997ec"
+   "bytes": 11707,
+   "sha256": "3dec127e855fa00d0704104904a4cc97a1b9cb339d97fd0e469cf872412ee4af"
   },
   {
    "path": "index.es.html",
-   "bytes": 10691,
-   "sha256": "b860c805ce5e9ff79814b7ff1fad6c29f1a812d336fcb11368fd5f0cebd8ded4"
+   "bytes": 11006,
+   "sha256": "1b6f42ab5c496c4666d435619f93fd63f5993d3789dc029c29303fe09f43e6fe"
   },
   {
    "path": "index.html",
-   "bytes": 10250,
-   "sha256": "d09b38d8befa939830b8ac627aa1b1c02c116075631a9112c7a46695ea262180"
+   "bytes": 10565,
+   "sha256": "bac68f2bb9ecfa27962c8422ea0669ca56d6316b219a1a350dd0e259b89f9bcd"
   },
   {
    "path": "index.ja.html",
-   "bytes": 11064,
-   "sha256": "05ab4c19cccb9626fcbdb76df21a4a9513ed53f4cdb2d78346920e900cd16436"
+   "bytes": 11379,
+   "sha256": "9594e9c8339ee5e0c3567aa64cb8563ef6ac5ace63cea0b65853b1fc193aa6d4"
   },
   {
    "path": "index.ko.html",
-   "bytes": 10670,
-   "sha256": "017a606be6eec81ed2001a50d02fb8aa5312de7532c51519b9038855c743a103"
+   "bytes": 10985,
+   "sha256": "9df406bf358b7396186ec1fabc019795c058728d3056c9467ed79d217c923114"
   },
   {
    "path": "index.pt-BR.html",
-   "bytes": 10672,
-   "sha256": "9e302274390a1702684eb9302498a06c99f44979b16954257a7aa2b13d07eb20"
+   "bytes": 10987,
+   "sha256": "76ad62fdc4387773307124e1d87978744ca6f49848335da2238ec4d3e855ffae"
   },
   {
    "path": "index.zh-CN.html",
-   "bytes": 10221,
-   "sha256": "24ee8d326884a9bf71628fb150ef976e20a714217be30695928644ba0ea7a558"
+   "bytes": 10536,
+   "sha256": "b814e73fa7cbded45ce9cc15a516b2e30b9fc40856a729ffd87475f94ffdefff"
   },
   {
    "path": "keys/conformity-issuer.json",
@@ -112,8 +117,8 @@
   },
   {
    "path": "keys/key-history.json",
-   "bytes": 2760,
-   "sha256": "9edb28044d561d9f9c98c2af805ee2f01d193d003dd4e0fef50f0d7595f7d781"
+   "bytes": 3025,
+   "sha256": "c994cf3df74d58647e206a9d853a4d0473b1a35d673eaec5a39e163199d42bba"
   },
   {
    "path": "keys/operator-issuers.json",
@@ -127,8 +132,8 @@
   },
   {
    "path": "keys/prooftask-trust-bundle.json",
-   "bytes": 49049,
-   "sha256": "f8af56d987f323f22b7dec6f4e3691085520bf0f596bab19b86e6d0c8a41a715"
+   "bytes": 49461,
+   "sha256": "05236f225f2538b369c2555b35a658c8b1063096018063b24785bb2eebedec4e"
   },
   {
    "path": "LICENSE",
@@ -137,13 +142,13 @@
   },
   {
    "path": "SHA256SUMS",
-   "bytes": 2741,
-   "sha256": "891e9f0ae44da6667183334e07dba7c833c74a4dd6aae0a6f908f410e6163fe2"
+   "bytes": 2899,
+   "sha256": "846719e5042123550b755f44e5e30482d7f3b656c370f5b05f9ecc7872872fcf"
   },
   {
    "path": "verifier/prooftask-buyer-record-checker.html",
-   "bytes": 5810040,
-   "sha256": "3a8407f8b8feb2b1eedc009d5fe3b4ed2df7a820124d2d60be234e38e6616947"
+   "bytes": 5809599,
+   "sha256": "78689e256035dc9b8ead65d440c9cfd50c63e5f12d650099ff82dab71d5da5a7"
   },
   {
    "path": "verifier/verify-conformity.mjs",
