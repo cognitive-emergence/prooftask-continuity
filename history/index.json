@@ -97,6 +97,13 @@
    "firstSeen": "2026-11-24T12:14:08.542Z",
    "lastSeen": "2026-11-24T12:34:12.713Z",
    "release": "7fa9e672d2c992f901774f6a5631e4c0cf6c9df1"
+  },
+  {
+   "sha256": "b6e6e2cf5c74b3ab431cc31161af63743d9739f44d4ff0398fe4633211194027",
+   "path": "history/trust-bundles/b6e6e2cf5c74b3ab431cc31161af63743d9739f44d4ff0398fe4633211194027.json",
+   "firstSeen": "2026-11-24T13:37:02.026Z",
+   "lastSeen": "2026-11-24T13:37:02.026Z",
+   "release": "f4ff1aa0338eceb48e7d2a4821f768fc903d1c95"
   }
  ]
 }
