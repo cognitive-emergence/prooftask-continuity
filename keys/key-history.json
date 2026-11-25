@@ -6,7 +6,7 @@
    "fingerprintSha256": "e069634faea0967cf3ec8395ac8c06863296ed2ed2d316c52d802bb861b95ca3",
    "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA6nsWx3sUdhtLCSWa+DctuxonCqzkX1DFBRQEiulPIAk=\n-----END PUBLIC KEY-----\n",
    "firstSeen": "2026-11-22T06:57:20.750Z",
-   "lastSeen": "2026-11-25T11:51:45.164Z",
+   "lastSeen": "2026-11-25T13:12:39.740Z",
    "statuses": [
     {
      "seen": "2026-11-22T06:57:20.750Z",
@@ -112,6 +112,11 @@
      "seen": "2026-11-25T11:51:45.164Z",
      "status": "ACTIVE",
      "trustBundle": "c14b1cf410e1d878cda0acd2cfc9133013d539626337b2695969ca310320d03b"
+    },
+    {
+     "seen": "2026-11-25T13:12:39.740Z",
+     "status": "ACTIVE",
+     "trustBundle": "42ed11982cd775046e4bdd02e539066f46a96c938a0e0fbef4bbdf8bc42c609c"
     }
    ],
    "trustBundles": [
@@ -135,12 +140,13 @@
     "history/trust-bundles/8203741380bfc15fd635befa6cd82f10f36ad6df61b0bfc2012c244c3b8a10aa.json",
     "history/trust-bundles/19e24a7c0201bec9cea97fe2e1b11088408dc6ba5fdce1f4e716b5dc481196d8.json",
     "history/trust-bundles/da8bfb9cff0ad42e0557ef52c308391d25d6d057664f37e9a1c241132a59d89e.json",
-    "history/trust-bundles/c14b1cf410e1d878cda0acd2cfc9133013d539626337b2695969ca310320d03b.json"
+    "history/trust-bundles/c14b1cf410e1d878cda0acd2cfc9133013d539626337b2695969ca310320d03b.json",
+    "history/trust-bundles/42ed11982cd775046e4bdd02e539066f46a96c938a0e0fbef4bbdf8bc42c609c.json"
    ],
    "current": {
-    "seen": "2026-11-25T11:51:45.164Z",
+    "seen": "2026-11-25T13:12:39.740Z",
     "status": "ACTIVE",
-    "trustBundle": "c14b1cf410e1d878cda0acd2cfc9133013d539626337b2695969ca310320d03b"
+    "trustBundle": "42ed11982cd775046e4bdd02e539066f46a96c938a0e0fbef4bbdf8bc42c609c"
    }
   }
  ]
