@@ -2,7 +2,7 @@
   "schema": "prooftask.operator-issuers/v1",
   "operator": "ProofTask",
   "channels": [
-    "https://github.com/cognitive-emergence/prooftask/blob/main/src/result/operator-issuers.json",
+    "https://github.com/cognitive-emergence/prooftask-sdk/blob/main/verifiers/operator-issuers.json",
     "https://prooftask.com/.well-known/prooftask-trust-bundle.json"
   ],
   "keys": [
