@@ -6,7 +6,7 @@
    "fingerprintSha256": "e069634faea0967cf3ec8395ac8c06863296ed2ed2d316c52d802bb861b95ca3",
    "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA6nsWx3sUdhtLCSWa+DctuxonCqzkX1DFBRQEiulPIAk=\n-----END PUBLIC KEY-----\n",
    "firstSeen": "2026-11-22T06:57:20.750Z",
-   "lastSeen": "2026-11-28T08:34:44.093Z",
+   "lastSeen": "2026-11-28T08:42:44.601Z",
    "statuses": [
     {
      "seen": "2026-11-22T06:57:20.750Z",
@@ -194,7 +194,7 @@
      "trustBundle": "bc6563f199beedb09fd64e8a1c4eb73bc238e66b5c53792b91ecf55381892b14"
     },
     {
-     "seen": "2026-11-28T08:34:44.093Z",
+     "seen": "2026-11-28T08:42:44.601Z",
      "status": "ACTIVE",
      "trustBundle": "e882e2a65c32883076eae7280bfa94adec839cf62c751261cd891fbba622769a"
     }
@@ -240,7 +240,7 @@
     "history/trust-bundles/e882e2a65c32883076eae7280bfa94adec839cf62c751261cd891fbba622769a.json"
    ],
    "current": {
-    "seen": "2026-11-28T08:34:44.093Z",
+    "seen": "2026-11-28T08:42:44.601Z",
     "status": "ACTIVE",
     "trustBundle": "e882e2a65c32883076eae7280bfa94adec839cf62c751261cd891fbba622769a"
    }
